@@ -12,17 +12,17 @@ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
 
-// LAYERS
+/* LAYERS */
 enum _L { _Q, _N, _S, _F, _A };
 
-// KEYS
+/* KEYS */
 const uint16_t PROGMEM _K[5][3][10] = {
-  // QWERTY {{{
+  /* QWERTY {{{*/
   {
     {
       LT(_A, KC_Q),
@@ -61,8 +61,8 @@ const uint16_t PROGMEM _K[5][3][10] = {
       KC_SLSH
     }
   },
-  // }}}
-  // NUMBERS {{{
+  /* }}} */
+  /* NUMBERS {{{*/
   {
     {
       KC_1,
@@ -101,8 +101,8 @@ const uint16_t PROGMEM _K[5][3][10] = {
       KC_SLSH
     }
   },
-  // }}}
-  // SYMBOLS {{{
+  /* }}}*/
+  /* SYMBOLS {{{*/
   {
     {
       KC_EXLM,
@@ -141,8 +141,8 @@ const uint16_t PROGMEM _K[5][3][10] = {
       S(KC_QUOT)
     }
   },
-  // }}}
-  // FUNCTIONS {{{
+  /* }}}*/
+  /* FUNCTIONS {{{*/
   {
     {
       KC_F1,
@@ -181,8 +181,8 @@ const uint16_t PROGMEM _K[5][3][10] = {
       XXXXXXX
     }
   },
-  // }}}
-  // ARROWS {{{
+  /* }}}*/
+  /* ARROWS {{{*/
   {
     {
       XXXXXXX,
@@ -221,71 +221,51 @@ const uint16_t PROGMEM _K[5][3][10] = {
       XXXXXXX
     }
   }
-  // }}}
+  /* }}}*/
 };
 
-// THUMB KEYS
-const uint16_t PROGMEM _T[5][2][2] = {
-  // QWERTY {{{
+/* THUMBS */
+const uint16_t PROGMEM _T[5][4] = {
+  /* QWERTY {{{*/
   {
-    {
-      LT(_S, KC_BSPC),
-      LT(_N, KC_ESC)
-    },
-    {
-      LT(_N, KC_ENT),
-      LT(_S, KC_SPC)
-    }
+    LT(_S, KC_BSPC),
+    LT(_N, KC_ESC),
+    LT(_N, KC_ENT),
+    LT(_S, KC_SPC)
   },
-  // }}}
-  // NUMBER {{{
+  /* }}}*/
+  /* NUMBERS {{{*/
   {
-    {
-      XXXXXXX,
-      XXXXXXX
-    },
-    {
-      KC_TAB,
-      KC_0
-    }
+    XXXXXXX,
+    XXXXXXX,
+    KC_TAB,
+    KC_0
   },
-  // }}}
-  // SYMBOLS {{{
+  /* }}}*/
+  /* SYMBOLS {{{*/
   {
-    {
-      XXXXXXX,
-      XXXXXXX
-    },
-    {
-      XXXXXXX,
-      XXXXXXX
-    }
+    XXXXXXX,
+    XXXXXXX,
+    XXXXXXX,
+    XXXXXXX
   },
-  // }}}
-  // FUNCTIONS {{{
+  /* }}}*/
+  /* FUNCTIONS {{{*/
   {
-    {
-      XXXXXXX,
-      XXXXXXX
-    },
-    {
-      XXXXXXX,
-      XXXXXXX
-    }
+    XXXXXXX,
+    XXXXXXX,
+    XXXXXXX,
+    XXXXXXX
   },
-  // }}}
-  // ARROWS {{{
+  /* }}}*/
+  /* ARROWS {{{*/
   {
-    {
-      XXXXXXX,
-      XXXXXXX
-    },
-    {
-      XXXXXXX,
-      XXXXXXX
-    }
+    XXXXXXX,
+    XXXXXXX,
+    XXXXXXX,
+    XXXXXXX
   }
-  // }}}
+  /* }}}*/
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -293,31 +273,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       XXXXXXX, _K[_Q][0][0], _K[_Q][0][1], _K[_Q][0][2], _K[_Q][0][3], _K[_Q][0][4], _K[_Q][0][5], _K[_Q][0][6], _K[_Q][0][7], _K[_Q][0][8], _K[_Q][0][9], XXXXXXX,
       XXXXXXX, _K[_Q][1][0], _K[_Q][1][1], _K[_Q][1][2], _K[_Q][1][3], _K[_Q][1][4], _K[_Q][1][5], _K[_Q][1][6], _K[_Q][1][7], _K[_Q][1][8], _K[_Q][1][9], XXXXXXX,
       XXXXXXX, _K[_Q][2][0], _K[_Q][2][1], _K[_Q][2][2], _K[_Q][2][3], _K[_Q][2][4], _K[_Q][2][5], _K[_Q][2][6], _K[_Q][2][7], _K[_Q][2][8], _K[_Q][2][9], XXXXXXX,
-                                                XXXXXXX, _T[_Q][0][0], _T[_Q][0][1], _T[_Q][1][0], _T[_Q][1][1],      XXXXXXX
+                                                XXXXXXX,    _T[_Q][0],    _T[_Q][1],    _T[_Q][2],    _T[_Q][3],      XXXXXXX
       ),
   [_N] = LAYOUT_split_3x6_3(
       XXXXXXX, _K[_N][0][0], _K[_N][0][1], _K[_N][0][2], _K[_N][0][3], _K[_N][0][4], _K[_N][0][5], _K[_N][0][6], _K[_N][0][7], _K[_N][0][8], _K[_N][0][9], XXXXXXX,
       XXXXXXX, _K[_N][1][0], _K[_N][1][1], _K[_N][1][2], _K[_N][1][3], _K[_N][1][4], _K[_N][1][5], _K[_N][1][6], _K[_N][1][7], _K[_N][1][8], _K[_N][1][9], XXXXXXX,
       XXXXXXX, _K[_N][2][0], _K[_N][2][1], _K[_N][2][2], _K[_N][2][3], _K[_N][2][4], _K[_N][2][5], _K[_N][2][6], _K[_N][2][7], _K[_N][2][8], _K[_N][2][9], XXXXXXX,
-                                                XXXXXXX, _T[_N][0][0], _T[_N][0][1], _T[_N][1][0], _T[_N][1][1],      XXXXXXX
+                                                XXXXXXX,    _T[_N][0],    _T[_N][1],    _T[_N][2],    _T[_N][3],     XXXXXXX
       ),
   [_S] = LAYOUT_split_3x6_3(
       XXXXXXX, _K[_S][0][0], _K[_S][0][1], _K[_S][0][2], _K[_S][0][3], _K[_S][0][4], _K[_S][0][5], _K[_S][0][6], _K[_S][0][7], _K[_S][0][8], _K[_S][0][9], XXXXXXX,
       XXXXXXX, _K[_S][1][0], _K[_S][1][1], _K[_S][1][2], _K[_S][1][3], _K[_S][1][4], _K[_S][1][5], _K[_S][1][6], _K[_S][1][7], _K[_S][1][8], _K[_S][1][9], XXXXXXX,
       XXXXXXX, _K[_S][2][0], _K[_S][2][1], _K[_S][2][2], _K[_S][2][3], _K[_S][2][4], _K[_S][2][5], _K[_S][2][6], _K[_S][2][7], _K[_S][2][8], _K[_S][2][9], XXXXXXX,
-                                                XXXXXXX, _T[_S][0][0], _T[_S][0][1], _T[_S][1][0], _T[_S][1][1],      XXXXXXX
+                                                XXXXXXX,    _T[_S][0],    _T[_S][1],    _T[_S][2],    _T[_S][3],      XXXXXXX
       ),
   [_F] = LAYOUT_split_3x6_3(
       XXXXXXX, _K[_F][0][0], _K[_F][0][1], _K[_F][0][2], _K[_F][0][3], _K[_F][0][4], _K[_F][0][5], _K[_F][0][6], _K[_F][0][7], _K[_F][0][8], _K[_F][0][9], XXXXXXX,
       XXXXXXX, _K[_F][1][0], _K[_F][1][1], _K[_F][1][2], _K[_F][1][3], _K[_F][1][4], _K[_F][1][5], _K[_F][1][6], _K[_F][1][7], _K[_F][1][8], _K[_F][1][9], XXXXXXX,
       XXXXXXX, _K[_F][2][0], _K[_F][2][1], _K[_F][2][2], _K[_F][2][3], _K[_F][2][4], _K[_F][2][5], _K[_F][2][6], _K[_F][2][7], _K[_F][2][8], _K[_F][2][9], XXXXXXX,
-                                                XXXXXXX, _T[_F][0][0], _T[_F][0][1], _T[_F][1][0], _T[_F][1][1],      XXXXXXX
+                                                XXXXXXX,    _T[_F][0],    _T[_F][1],    _T[_F][2],    _T[_F][3],      XXXXXXX
       ),
   [_A] = LAYOUT_split_3x6_3(
       XXXXXXX, _K[_A][0][0], _K[_A][0][1], _K[_A][0][2], _K[_A][0][3], _K[_A][0][4], _K[_A][0][5], _K[_A][0][6], _K[_A][0][7], _K[_A][0][8], _K[_A][0][9], XXXXXXX,
       XXXXXXX, _K[_A][1][0], _K[_A][1][1], _K[_A][1][2], _K[_A][1][3], _K[_A][1][4], _K[_A][1][5], _K[_A][1][6], _K[_A][1][7], _K[_A][1][8], _K[_A][1][9], XXXXXXX,
       XXXXXXX, _K[_A][2][0], _K[_A][2][1], _K[_A][2][2], _K[_A][2][3], _K[_A][2][4], _K[_A][2][5], _K[_A][2][6], _K[_A][2][7], _K[_A][2][8], _K[_A][2][9], XXXXXXX,
-                                                XXXXXXX, _T[_A][0][0], _T[_A][0][1], _T[_A][1][0], _T[_A][1][1],      XXXXXXX
+                                                XXXXXXX,    _T[_A][0],    _T[_A][1],    _T[_A][2],    _T[_A][3],      XXXXXXX
       )
 };
 
